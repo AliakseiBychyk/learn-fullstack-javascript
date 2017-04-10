@@ -7,3 +7,10 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
+
+setTimeout(() => {
+  ReactDOM.render(
+    <h2>App component is unmount.... </h2>,
+    document.getElementById('root')
+  );
+}, 4000); 
