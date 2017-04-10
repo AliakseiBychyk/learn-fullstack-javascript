@@ -12,6 +12,14 @@ const App = (props) => {
   );
 };
 
+App.propTypes = {
+  headerMessage: React.PropTypes.string.isRequired
+};
+
+App.defaultProps = {
+  headerMessage: 'Hello!!'
+};
+
 ReactDOM.render(
   //React.createElement('h2', null, 'Hello React!'),
 
