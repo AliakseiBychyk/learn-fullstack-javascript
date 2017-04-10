@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from './Header';
+import ContestPreview from './ContestPreview'
 
 
 class App extends React.Component {
@@ -9,14 +10,10 @@ class App extends React.Component {
     test: 42
   };
   componentDidMount() {
-    // ajax, timers, listeners
     console.log('did Mount');
-    debugger;
   }
   componentWillUnmount() {
-    // clean timers, listeners
-    console.log('will Unmount');
-    debugger;
+
   }
   render() {
     return (
@@ -24,6 +21,7 @@ class App extends React.Component {
         <Header message={this.state.pageHeader} />
         <div>
           {this.state.test}
+          <ContestPreview {...this.props.contests[0]} />
         </div>
       </div>  
     );
