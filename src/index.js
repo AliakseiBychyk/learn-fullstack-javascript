@@ -3,10 +3,22 @@ import ReactDOM from 'react-dom';
 
 const color = Math.random() > 0.5 ? 'green' : 'red';
 
+const App = (props) => {
+  return (
+    <h2 className="text-center" style={{ color }}>
+      Hello React with JSX!! -- {Math.random()}<br />
+      {props.headerMessage}
+    </h2>
+  );
+};
+
 ReactDOM.render(
   //React.createElement('h2', null, 'Hello React!'),
-  <h2 style={{color: color}}>
-    Hello React with JSX!! -- {Math.random()}
-  </h2>,
+
+  // <h2 className="text-center" style={{color}}>
+  //   Hello React with JSX!! -- {Math.random()}
+  // </h2>,
+
+  <App headerMessage="Hello props!" />,
   document.getElementById('root')
 );
