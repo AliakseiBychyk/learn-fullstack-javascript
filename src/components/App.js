@@ -2,15 +2,18 @@ import React from 'react';
 
 import Header from './Header';
 import ContestPreview from './ContestPreview'
-
+import data from '../testData';
 
 class App extends React.Component {
   state = {
     pageHeader: 'Naming Contests',
-    test: 42
+    test: 42,
+    contests: []
   };
   componentDidMount() {
-    console.log('did Mount');
+    this.setState({
+      contests: data.contests
+    });
   }
   componentWillUnmount() {
 
@@ -21,8 +24,8 @@ class App extends React.Component {
         <Header message={this.state.pageHeader} />
         <div>
           {this.state.test}
-          {this.props.contests.map(contest =>
-              <ContestPreview {...contest} />
+          {this.state.contests.map(contest =>
+            <ContestPreview key={contest.id} {...contest} />
             )}
         </div>
       </div>  
