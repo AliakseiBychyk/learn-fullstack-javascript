@@ -21,7 +21,9 @@ class App extends React.Component {
         <Header message={this.state.pageHeader} />
         <div>
           {this.state.test}
-          <ContestPreview {...this.props.contests[0]} />
+          {this.props.contests.map(contest =>
+              <ContestPreview {...contest} />
+            )}
         </div>
       </div>  
     );
