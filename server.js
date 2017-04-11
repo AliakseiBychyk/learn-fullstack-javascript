@@ -4,6 +4,7 @@ import apiRouter from './api';
 import sassMiddlware from 'node-sass-middleware';
 import path from 'path';
 import fs from 'fs';
+
 const server = express();
 
 server.use(sassMiddlware({
@@ -13,23 +14,20 @@ server.use(sassMiddlware({
 
 server.set('view engine', 'ejs');
 
-import './serverRender';
+import serverRender from './serverRender';
 
 server.get('/', (req, res) => {
-  //res.send('Hello Express');
-  res.render('index', {
-    content: 'Hello Express and <em>EJS</em>!'
-  });
+  serverRender()
+    .then(content => {
+      res.render('index', {
+        content
+      });
+    }) 
+    .catch(console.error);
 });
 
 server.use('/api', apiRouter);
 server.use(express.static('public'));
-
-// server.get('/about.html', (req, res) => {
-//   fs.readFile('./about.html', (err, data) => {
-//     res.send(data.toString());
-//   });
-// });
 
 server.listen(config.port, config.host, () => {
   console.info('Express listening on port ', config.port);

@@ -8,7 +8,7 @@ class App extends React.Component {
   state = {
     pageHeader: 'Naming Contests',
     test: 42,
-    contests: []
+    contests: this.props.initialContests
   };
   componentDidMount() {
     axios.get('/api/contests')
@@ -18,8 +18,8 @@ class App extends React.Component {
         });
       })
       .catch(console.error)
-
   }
+  
   componentWillUnmount() {
 
   }
@@ -38,4 +38,4 @@ class App extends React.Component {
   }
 };
 
-export default App
+export default App;
