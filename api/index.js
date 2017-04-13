@@ -51,4 +51,27 @@ router.get('/contests/:contestId', (req, res) => {
     .catch(console.error);
 });
 
+router.post('/names', (req, res) => {
+  const contestId = ObjectID(req.body.contestId);
+  const name = req.body.newName;
+  mdb.collection('names').insertOne({ name }).then(result =>
+    mdb.collection('contests').findAndModify(
+      { _id: contestId },
+      [],
+      { $push: { nameIds: result.insertedId } },
+      { new: true }
+    ).then(doc =>
+      res.send({
+        updatedContests: doc.value,
+        newName: { _id: result.insertedId, name }
+      })
+    )
+  )
+    .catch(error => {
+      console.error(error);
+      res.status(404).send('Bad Request');
+      res.send(error.toString());
+    });
+});
+
 export default router;
