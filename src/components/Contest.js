@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 
 class Contest extends Component {
   componentDidMount() {
@@ -7,7 +8,6 @@ class Contest extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // read the value that the user typed
     this.props.addName(this.refs.newNameInput.value, this.props._id);
     this.refs.newNameInput.value = '';
   };

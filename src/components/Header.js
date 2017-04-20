@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 const color = Math.random() > 0.5 ? 'green' : 'red';
 
@@ -18,7 +19,7 @@ const Header = ({ message }) => {
 };
 
 Header.propTypes = {
-  message: React.PropTypes.string.isRequired
+  message: PropTypes.string.isRequired
 };
 
 export default Header;
