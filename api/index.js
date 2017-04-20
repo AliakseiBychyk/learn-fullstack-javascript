@@ -41,7 +41,7 @@ router.get('/names/:nameIds', (req, res) => {
         }
         names[name._id] = name;
       });
-  }, 4000);
+  }, 1000);
 });
 
 router.get('/contests/:contestId', (req, res) => {

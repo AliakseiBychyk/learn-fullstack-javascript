@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './Header';
 import ContestList from './ContestList';
 import Contest from './Contest';
@@ -12,7 +12,7 @@ const onPopState = handler => {
   window.onpopstate = handler;
 };
 
-class App extends React.Component {
+class App extends Component {
   static propTypes = {
     initialData: PropTypes.object.isRequired
   };
