@@ -10,3 +10,7 @@ My training project based on "Learning Full-Stack JavaScript Development: MongoD
 
 3. Run $npm run dev to assembly bundle
 
+API - localhost:8080/api/contests
+http://localhost:8080/api/contests/58ef4861397d60116ce0d5b5
+
+Web App - localhost:8080
